@@ -1,42 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace LineComparison
+namespace LineComparisonProblem
 {
-    public class LineCalculation
+    class Program
     {
-        double xOnePoint, xTwoPoint, yOnePoint, yTwoPoint;
-        public LineCalculation(double xOnePoint, double xTwoPoint, double yOnePoint, double yTwoPoint)
+        static void Main(string[] args)
         {
-            this.xOnePoint = xOnePoint;
-            this.xTwoPoint = xTwoPoint;
-            this.yOnePoint = yOnePoint;
-            this.yTwoPoint = yTwoPoint;
-        }
-        public double LengthCalculate()
-        {
-            double result = Math.Sqrt(Math.Pow(this.xTwoPoint - this.xOnePoint, 2) + Math.Pow(this.yTwoPoint - this.yOnePoint, 2));
-            return result;
-        }
-        public void Check(double lengthOne, double lengthTwo)
-        {
-            if (lengthOne.CompareTo(lengthTwo) == 0)
-            {
-                Console.WriteLine("The two lines are equal");
-            }
-            if (lengthOne.CompareTo(lengthTwo) < 0)
-            {
-                Console.WriteLine("The second line is greater than first line");
-            }
-            if (lengthOne.CompareTo(lengthTwo) > 0)
-            {
-                Console.WriteLine("The first line is greater than second line");
-            }
+            Console.WriteLine("Welcome Line Comparison Computation Program");
+            LineCalculation lineOne = new LineCalculation(23.0, 28.0, 14.0, 18.0);
+            double lengthOne = lineOne.LengthCalculate();
+            Console.WriteLine("The length of the first line is {0}", lengthOne);
+            LineCalculation lineTwo = new LineCalculation(13.0, 19.0, 20.0, 11.0);
+            double lengthTwo = lineTwo.LengthCalculate();
+            Console.WriteLine("The length of the second line is {0}", lengthTwo);
+            lineTwo.Check(lengthOne, lengthTwo);
         }
     }
 }
-
-
-
 
